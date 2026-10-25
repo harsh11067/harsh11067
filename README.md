@@ -2,25 +2,15 @@
 
 <img src="assets/hero.svg" alt="Hello, I'm Kumar Harsh: AI + web3 builder, engineering student, hackathon regular" width="100%" />
 
-I build AI and web3 products, from the first sketch to the shipped thing. Agents that prove what they did, models that keep patient data private, markets you can play without losing your shirt. Most of my projects started as a hackathon weekend and simply refused to stop there.
-
 <a href="https://kumarharsh.online"><img src="assets/btn-portfolio.svg" alt="Portfolio" height="44" /></a>&nbsp;<a href="https://x.com/RisingPawn021"><img src="assets/btn-x.svg" alt="Twitter / X" height="44" /></a>&nbsp;<a href="mailto:kumarharsh61911518@gmail.com"><img src="assets/btn-email.svg" alt="Email" height="44" /></a>
 
 </div>
 
 ## ⚡ What I do
 
-I'm a solo builder who works like a small studio. An idea shows up, I learn whatever it needs (a new chain, a new model, Rust this month), and then I build it with Claude as my design partner and my engineering crew. I write the specs, split the work across Claude Code agents running in parallel, read every diff and test it hard, so I stay the one who decides what ships. The look comes together with Claude too: layouts, motion, and 3D scenes I shape in Blender through MCP.
+I explore emerging ecosystems, experiment with new technologies, and turn interesting ideas into products that go beyond the demo. My work spans Web3, AI/ML, and full-stack development — from EVM smart contracts to autonomous agents that act on-chain, privacy-focused AI that runs entirely offline, and interactive web experiences. I care as much about how a product feels as how it works: its design language, visual atmosphere, motion, and the little details that give it a distinct identity. I enjoy moving between unfamiliar systems, figuring out what makes an idea work, and bringing engineering and creative direction together to build products that feel as intentional as they are functional.
 
-<div align="center"><img src="assets/flow.svg" alt="How I build: imagine, learn, commit, design, direct, test, ship" width="100%" /></div>
-
-- 🧠 **Agent orchestration**: Claude Code as a crew, with specs first, sub-agents on parallel tasks, and reviews and tests before anything merges
-- 🎨 **Design with Claude**: layouts, motion and visual polish, plus Blender scenes driven through MCP, like the ruins in Olympus and my [portfolio](https://kumarharsh.online)
-- 📱 **On-device ML**: models that run where the data lives, like SkinNova's Gemma 4 fine-tune that works fully offline on a phone
-- 🤖 **AI agents**: agents that research, decide and act on-chain, and can prove what they did (MARA, NEXUS, Vectis)
-- 🧩 **Full stack**: Next.js and React up front, Node and Hono behind, smart contracts underneath, shipped live
-- 🏁 **Hackathons**: idea to demo in a weekend, then the part most people skip: keep building
-- 🌱 **Right now**: Rust hands-on, system design, and DSA reps in C++ every day
+<div align="center"><img src="assets/flow.svg" alt="How I build: imagine, commit, design, code, test, ship" width="100%" /></div>
 
 ## 🛠️ Core stack & technologies
 
@@ -54,10 +44,10 @@ I'm a solo builder who works like a small studio. An idea shows up, I learn what
 
 </div>
 
-## 🚀 Selected projects
+## 🚀 Fierce projects
 
 <div align="center">
-<a href="https://github.com/harsh11067/helix"><img src="assets/cards/helix.svg" alt="HELIX: conviction-native finance on Sui. Namespace winner, $45, Top 100" width="49%" /></a>
+<a href="https://github.com/harsh11067/helix"><img src="assets/cards/helix.svg" alt="HELIX: conviction-native finance on Sui. Namespace winner, Top 100" width="49%" /></a>
 <a href="https://github.com/harsh11067/SkinNova"><img src="assets/cards/skinnova.svg" alt="SkinNova: offline skin checks on your phone" width="49%" /></a>
 <a href="https://github.com/harsh11067/mara"><img src="assets/cards/mara.svg" alt="MARA: a macro-aware research and execution agent" width="49%" /></a>
 <a href="https://github.com/harsh11067/DefiMosaic"><img src="assets/cards/defimosaic.svg" alt="DeFi Mosaic: a gamified trading universe on real markets" width="49%" /></a>
@@ -71,8 +61,8 @@ I'm a solo builder who works like a small studio. An idea shows up, I learn what
 |:--|:--|:--|
 | 0G WaveHack · AKINDO | [0G Matchwave](https://github.com/harsh11067/OG_Matchwave) | 🏆 Winner · 522 USDT |
 | Polygon hackathon · AKINDO | [DeFi Mosaic](https://github.com/harsh11067/DefiMosaic) | 🏆 Winner · 278 USDC |
-| Namespace · HackHazards ’26 | [HELIX](https://github.com/harsh11067/helix) | 🏆 Winner · $45 · Top 100 |
-| HackQuest | [Vectis](https://www.hackquest.io/projects/vectis) | ⭐ Top rated · 15,858 likes |
+| Namespace · HackHazards ’26 | [HELIX](https://github.com/harsh11067/helix) | 🏆 Winner · Top 100 |
+| HackQuest | [wawiop](https://github.com/harsh11067/wawiop) | ⭐ Top rated · 15,858 likes |
 | AKINDO wave · SoSoValue track | [MARA](https://github.com/harsh11067/mara) | 🎯 Top 15 · USD pending |
 | CodeRed ’25 · national level | [CodeRed ’25](https://github.com/harsh11067/mycodered25) | 🎖️ Finalist |
 

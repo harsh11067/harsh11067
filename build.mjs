@@ -103,14 +103,14 @@ for (const [slug, style] of Object.entries(ECO_SI)) {
 
 // ---------- how I build: idea to ship, with a pulse running along the line ----------
 {
-  const STEPS = [['💡', 'Imagine'], ['📚', 'Learn'], ['🔥', 'Commit'], ['📐', 'Design'], ['🎬', 'Direct'], ['🧪', 'Test'], ['🚀', 'Ship']];
+  const STEPS = [['💡', 'Imagine'], ['🔥', 'Commit'], ['📐', 'Design'], ['💻', 'Code'], ['🧪', 'Test'], ['🚀', 'Ship']];
   const W = 880, H = 118, step = (W - 80) / (STEPS.length - 1);
   let nodes = '';
   STEPS.forEach(([e, l], i) => {
     const x = 40 + i * step;
-    nodes += `<g><circle cx="${x}" cy="44" r="25" fill="#0f1726" stroke="#2b4a7a"/><circle class="ring" style="animation-delay:${(i * 0.5).toFixed(1)}s" cx="${x}" cy="44" r="25" fill="none" stroke="#5fe08a" stroke-width="2"/><text x="${x}" y="52" text-anchor="middle" font-size="22">${e}</text><text x="${x}" y="98" text-anchor="middle" class="l">${l}</text></g>`;
+    nodes += `<g><circle cx="${x}" cy="44" r="25" fill="#0f1726" stroke="#2b4a7a"/><circle class="ring" style="animation-delay:${(i / (STEPS.length - 1) * 3.5).toFixed(2)}s" cx="${x}" cy="44" r="25" fill="none" stroke="#5fe08a" stroke-width="2"/><text x="${x}" y="52" text-anchor="middle" font-size="22">${e}</text><text x="${x}" y="98" text-anchor="middle" class="l">${l}</text></g>`;
   });
-  write('flow.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="How I build: imagine, learn, commit, design, direct, test, ship">
+  write('flow.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="How I build: imagine, commit, design, code, test, ship">
 <style>.l { font: 650 13px ${FONT}; fill: #c9d3e3; } .ring { opacity: 0; animation: ping 3.5s ease-out infinite; } .dot { animation: run 3.5s linear infinite; }
 @keyframes ping { 0%, 100% { opacity: 0; } 4% { opacity: 1; } 18% { opacity: 0; } } @keyframes run { from { transform: translateX(0); } to { transform: translateX(${W - 80}px); } }
 @media (prefers-reduced-motion: reduce) { .ring, .dot { animation: none; } }</style>
@@ -122,7 +122,7 @@ ${nodes}
 
 // ---------- selected projects: one card each ----------
 const CARDS = [
-  { id: 'helix', title: 'HELIX', tag: 'Conviction-native finance on Sui', ev: 'Sui Overflow 2026 · Agentic Web', badge: '🏆 Namespace winner · $45 · Top 100', accent: '#4da2ff', stack: ['Sui Move', 'DeepBook', 'Walrus', 'Seal', 'TEE'] },
+  { id: 'helix', title: 'HELIX', tag: 'Conviction-native finance on Sui', ev: 'Sui Overflow 2026 · Agentic Web', badge: '🏆 Namespace winner · Top 100', accent: '#4da2ff', stack: ['Sui Move', 'DeepBook', 'Walrus', 'Seal', 'TEE'] },
   { id: 'skinnova', title: 'SkinNova', tag: 'Offline skin checks on your phone, in English & Hindi', ev: 'On-device AI · Android', badge: '🧠 Gemma 4 fine-tune, fully offline', accent: '#8b7cff', stack: ['Kotlin', 'Compose', 'Gemma 4', 'LiteRT', 'PyTorch'] },
   { id: 'mara', title: 'MARA', tag: 'A macro-aware research & execution agent', ev: 'AKINDO wave · SoSoValue track', badge: '🎯 Top 15 · USD pending', accent: '#ff7a59', stack: ['Next.js 15', 'Gemini', 'MCP', 'SoDEX', 'Solidity'] },
   { id: 'defimosaic', title: 'DeFi Mosaic', tag: 'A gamified trading universe on real markets', ev: 'Polygon hackathon · AKINDO', badge: '🏆 Winner · 278 USDC', accent: '#3ddc97', stack: ['Next.js 15', 'Solidity', 'Polygon', 'wagmi', 'Supabase'] }
