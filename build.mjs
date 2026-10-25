@@ -1,6 +1,7 @@
 // Builds the SVG artwork for my GitHub profile README (github.com/harsh11067):
-//   assets/hero.svg, assets/btn-*.svg, assets/stack.svg, assets/ecosystems.svg, assets/cards/<id>.svg
-// Logos come from Simple Icons (CC0); the few that aren't in it get clean name tiles.
+//   assets/hero.svg, assets/btn-*.svg, assets/flow.svg, assets/stack.svg, assets/eco/<name>.svg, assets/cards/<id>.svg
+// Logos come from Simple Icons (CC0). The ecosystems Simple Icons doesn't have are real logos saved as
+// assets/eco/<name>.png (from each project's GitHub org / site / CoinGecko listing), rounded to match.
 //   node build.mjs
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createRequire } from 'node:module';
@@ -9,7 +10,7 @@ const require = createRequire(import.meta.url);
 const siMod = await import(require.resolve('simple-icons', { paths: ['../site'] }));
 const si = siMod.siX ? siMod : siMod.default;          // CJS build when resolved this way
 const OUT = new URL('./assets/', import.meta.url).pathname;
-mkdirSync(OUT + 'cards', { recursive: true });
+mkdirSync(OUT + 'cards', { recursive: true }); mkdirSync(OUT + 'eco', { recursive: true });
 
 const FONT = `-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif`;
 const MONO = `ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace`;
@@ -68,67 +69,53 @@ btn('portfolio', 'Portfolio', `<path d="M10 0a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z
 btn('x', 'Twitter / X', `<path transform="scale(.83)" d="${icon('x').path}"/>`, false);
 btn('email', 'Email', `<path d="M2 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 2v.4l8 5 8-5V5H2Zm16 2.8-7.5 4.7a1 1 0 0 1-1 0L2 7.8V15h16V7.8Z"/>`, false);
 
-// ---------- tech stack: a keycap wall, like the keyboard on kumarharsh.online ----------
+// ---------- core stack: a grid of dark rounded tiles, the skillicons look ----------
 const STACK = ['typescript', 'javascript', 'python', 'rust', 'kotlin', 'solidity', 'cplusplus', 'html5',
-  'react', 'nextdotjs', 'nodedotjs', 'express', 'hono', 'vite', 'tailwindcss', 'shadcnui',
-  'threedotjs', 'gsap', 'jetpackcompose', 'pytorch', 'tensorflow', 'fastapi', 'streamlit', 'mongodb',
-  'supabase', 'postgresql', 'git', 'github', 'vercel', 'render', 'blender', 'pnpm'];
+  'react', 'nextdotjs', 'nodedotjs', 'express', 'hono', 'tailwindcss', 'threedotjs', 'vite',
+  'pytorch', 'tensorflow', 'jetpackcompose', 'fastapi', 'mongodb', 'postgresql', 'supabase', 'docker',
+  'git', 'github', 'vercel', 'linux', 'blender', 'gsap', 'shadcnui', 'pnpm'];
 {
-  const C = 8, S = 64, G = 14, W = C * (S + G) - G + 48, rows = Math.ceil(STACK.length / C), H = rows * (S + G) - G + 40;
-  let keys = '';
+  const C = 8, S = 52, G = 10, W = C * (S + G) - G, rows = Math.ceil(STACK.length / C), H = rows * (S + G) - G;
+  let tiles = '';
   STACK.forEach((slug, i) => {
     const ic = icon(slug); if (!ic) throw new Error('no icon ' + slug);
-    const col = lum(ic.hex) < 0.22 ? 'e6edf3' : ic.hex, x = 24 + (i % C) * (S + G), y = 16 + Math.floor(i / C) * (S + G);
-    keys += `<g transform="translate(${x} ${y})"><title>${esc(ic.title)}</title>
-      <rect y="4" width="${S}" height="${S}" rx="14" fill="#06080c"/>
-      <rect width="${S}" height="${S}" rx="14" fill="url(#cap)" stroke="#ffffff" stroke-opacity=".07"/>
-      <rect class="glow" style="animation-delay:${((i % C) + Math.floor(i / C)) * 0.18}s" x="-2" y="-2" width="${S + 4}" height="${S + 4}" rx="16" fill="none" stroke="#${col}" stroke-width="2"/>
-      <g transform="translate(${S / 2 - 15} ${S / 2 - 15}) scale(1.25)" fill="#${col}"><path d="${ic.path}"/></g></g>`;
+    const col = lum(ic.hex) < 0.22 ? 'ffffff' : ic.hex, x = (i % C) * (S + G), y = Math.floor(i / C) * (S + G);
+    tiles += `<g transform="translate(${x} ${y})"><title>${esc(ic.title)}</title><rect width="${S}" height="${S}" rx="12" fill="#242938"/><g transform="translate(${S / 2 - 15} ${S / 2 - 15}) scale(1.25)" fill="#${col}"><path d="${ic.path}"/></g></g>`;
   });
-  write('stack.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Tech stack: ${STACK.map(s => icon(s).title).join(', ')}">
-<defs><linearGradient id="cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c313b"/><stop offset=".55" stop-color="#1f232a"/><stop offset="1" stop-color="#181b21"/></linearGradient></defs>
-<style>.glow { opacity: 0; animation: wave 9s ease-in-out infinite; } @keyframes wave { 0%, 84%, 100% { opacity: 0; } 90% { opacity: .75; } } @media (prefers-reduced-motion: reduce) { .glow { animation: none; } }</style>
-${keys}
-</svg>`);
+  write('stack.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Core stack: ${STACK.map(s => icon(s).title).join(', ')}">${tiles}</svg>`);
 }
 
-// ---------- ecosystems: grouped rows of logo tiles ----------
-const M = (label, bg, fg = '#ffffff') => ({ mono: label, bg, fg });         // name tile for logos not in Simple Icons
-const GROUPS = [
-  ['⛓️', 'Chains · L1 & L2', [['Ethereum', 'ethereum'], ['Base', M('base', '#0052ff')], ['Polygon', 'polygon'], ['Sui', 'sui'], ['Solana', 'solana'], ['0G Chain', M('0G', '#b04cff')], ['Linera', M('L', '#de2a02')], ['NEAR', 'near']]],
-  ['🗄️', 'Storage · compute · privacy', [['Walrus', M('W', '#2fb8a6')], ['IPFS', 'ipfs'], ['0G Storage', M('0G·S', '#8a3ffc')], ['0G Compute', M('0G·C', '#6c2bd9')], ['Seal', M('Seal', '#3d6cf0')], ['Intel TDX', 'intel'], ['Neon', 'neon'], ['Supabase', 'supabase']]],
-  ['🪪', 'Identity · wallets · standards', [['zkLogin', M('zk', '#4da2ff')], ['Privy', M('Privy', '#5b45ff')], ['Moca AIR', M('Moca', '#7a2cff')], ['wagmi', 'wagmi'], ['viem', M('viem', '#ffc517', '#111111')], ['ethers', 'ethers'], ['ERC-7857', M('7857', '#3b4a7a')], ['EIP-7702', M('7702', '#3b4a7a')], ['x402', M('x402', '#0052ff')]]],
-  ['📈', 'Markets · DeFi · data', [['DeepBook', M('DB', '#1e6bff')], ['SoSoValue', M('SoSo', '#12b886')], ['Pacifica', M('Pac', '#00a3ff')], ['Binance API', 'binance'], ['Metaplex', M('MPL', '#151515')], ['Anchor', M('⚓', '#2a3f9e')], ['Hardhat', M('HH', '#fff100', '#111111')]]],
-  ['🧠', 'AI · agents', [['Gemini', 'googlegemini'], ['Gemma', M('✦', '#1a73e8')], ['Venice AI', M('V', '#d9402c')], ['MCP', 'modelcontextprotocol'], ['Kaggle', 'kaggle'], ['Hugging Face', 'huggingface'], ['PyTorch', 'pytorch'], ['LiteRT', M('Lite', '#ff6f00')]]]
-];
+// ---------- ecosystems: one rounded brand tile per logo (Simple Icons ones; the rest are real PNG logos) ----------
+// light: logos that read better dark-on-colour
+const ECO_SI = { ethereum: '#627eea', polygon: '#7b3fe4', sui: '#4da2ff', solana: 'grad', ipfs: '#65c2cb', neon: '#00e599:dark', supabase: '#1c1c1c:green',
+  vercel: '#000000', render: '#ffffff:dark', intel: '#0071c5', wagmi: '#1b1b1b', ethers: '#2535a0', binance: '#f0b90b:dark', googlegemini: '#ffffff:gem',
+  modelcontextprotocol: '#ffffff:dark', kaggle: '#20beff' };
+for (const [slug, style] of Object.entries(ECO_SI)) {
+  const ic = icon(slug); if (!ic) throw new Error('no icon ' + slug);
+  const [bg, mode] = style.split(':');
+  const fill = mode === 'dark' ? '#111111' : mode === 'green' ? '#3ecf8e' : mode === 'gem' ? 'url(#gem)' : '#ffffff';
+  const back = bg === 'grad' ? 'url(#sol)' : bg;
+  write(`eco/${slug}.svg`, `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="${esc(ic.title)}">
+<defs><linearGradient id="sol" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#9945ff"/><stop offset="1" stop-color="#14f195"/></linearGradient><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c7cf4"/><stop offset=".5" stop-color="#8e6ae6"/><stop offset="1" stop-color="#e86a7c"/></linearGradient></defs>
+<rect width="96" height="96" rx="20" fill="${back}"/><g transform="translate(24 24) scale(2)" fill="${fill}"><path d="${ic.path}"/></g></svg>`);
+}
+
+// ---------- how I build: idea to ship, with a pulse running along the line ----------
 {
-  const S = 52, G = 22, W = 880;
-  let y = 40, body = '', count = 0;
-  for (const [emoji, title, items] of GROUPS) {
-    body += `<text x="${W / 2}" y="${y}" text-anchor="middle" class="h">${emoji}  ${esc(title)}</text>`;
-    y += 18;
-    const rowW = items.length * (S + G) - G; let x = (W - rowW) / 2;
-    for (const [name, it] of items) {
-      count++;
-      let tile;
-      if (typeof it === 'string') {
-        const ic = icon(it); if (!ic) throw new Error('no icon ' + it);
-        const dark = lum(ic.hex) < 0.22;
-        tile = `<rect width="${S}" height="${S}" rx="13" fill="${dark ? '#1c2230' : '#' + ic.hex}"/><g transform="translate(${S / 2 - 14} ${S / 2 - 14}) scale(1.1667)" fill="${dark ? '#f0f4fb' : lum(ic.hex) > 0.72 ? '#111111' : '#ffffff'}"><path d="${ic.path}"/></g>`;
-      } else {
-        const fs = it.mono.length <= 2 ? 22 : it.mono.length <= 4 ? 15 : 13;
-        tile = `<rect width="${S}" height="${S}" rx="13" fill="${it.bg}"/><text x="${S / 2}" y="${S / 2 + fs * 0.36}" text-anchor="middle" style="font: 800 ${fs}px ${FONT}; fill: ${it.fg}; letter-spacing: -.3px">${esc(it.mono)}</text>`;
-      }
-      body += `<g transform="translate(${x} ${y})"><title>${esc(name)}</title>${tile}<rect width="${S}" height="${S}" rx="13" fill="none" stroke="#ffffff" stroke-opacity=".1"/><text x="${S / 2}" y="${S + 15}" text-anchor="middle" class="l">${esc(name)}</text></g>`;
-      x += S + G;
-    }
-    y += S + 52;
-  }
-  const H = y - 20;
-  write('ecosystems.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Ecosystems I've built on (${count})">
-<style>.h { font: 650 15px ${FONT}; fill: #e6edf3; } .l { font: 500 10.5px ${FONT}; fill: #8b98ad; } .k { font: 700 20px ${FONT}; fill: #f0f4fb; }</style>
-<rect width="${W}" height="${H}" rx="22" fill="#0b1018"/><rect x=".5" y=".5" width="${W - 1}" height="${H - 1}" rx="21.5" fill="none" stroke="#ffffff" stroke-opacity=".07"/>
-${body}
+  const STEPS = [['💡', 'Imagine'], ['📚', 'Learn'], ['🔥', 'Commit'], ['📐', 'Design'], ['🎬', 'Direct'], ['🧪', 'Test'], ['🚀', 'Ship']];
+  const W = 880, H = 118, step = (W - 80) / (STEPS.length - 1);
+  let nodes = '';
+  STEPS.forEach(([e, l], i) => {
+    const x = 40 + i * step;
+    nodes += `<g><circle cx="${x}" cy="44" r="25" fill="#0f1726" stroke="#2b4a7a"/><circle class="ring" style="animation-delay:${(i * 0.5).toFixed(1)}s" cx="${x}" cy="44" r="25" fill="none" stroke="#5fe08a" stroke-width="2"/><text x="${x}" y="52" text-anchor="middle" font-size="22">${e}</text><text x="${x}" y="98" text-anchor="middle" class="l">${l}</text></g>`;
+  });
+  write('flow.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="How I build: imagine, learn, commit, design, direct, test, ship">
+<style>.l { font: 650 13px ${FONT}; fill: #c9d3e3; } .ring { opacity: 0; animation: ping 3.5s ease-out infinite; } .dot { animation: run 3.5s linear infinite; }
+@keyframes ping { 0%, 100% { opacity: 0; } 4% { opacity: 1; } 18% { opacity: 0; } } @keyframes run { from { transform: translateX(0); } to { transform: translateX(${W - 80}px); } }
+@media (prefers-reduced-motion: reduce) { .ring, .dot { animation: none; } }</style>
+<path d="M40 44H${W - 40}" stroke="#2b4a7a" stroke-width="2" stroke-dasharray="4 6"/>
+<circle class="dot" cx="40" cy="44" r="4" fill="#5fe08a"/>
+${nodes}
 </svg>`);
 }
 
@@ -136,12 +123,8 @@ ${body}
 const CARDS = [
   { id: 'helix', title: 'HELIX', tag: 'Conviction-native finance on Sui', ev: 'Sui Overflow 2026 · Agentic Web', badge: '🏆 Namespace winner · Top 100', accent: '#4da2ff', stack: ['Sui Move', 'DeepBook', 'Walrus', 'Seal', 'TEE'] },
   { id: 'skinnova', title: 'SkinNova', tag: 'Offline skin checks on your phone, in English & Hindi', ev: 'On-device AI · Android', badge: '🧠 Gemma 4 fine-tune, fully offline', accent: '#8b7cff', stack: ['Kotlin', 'Compose', 'Gemma 4', 'LiteRT', 'PyTorch'] },
-  { id: 'mara', title: 'MARA', tag: 'A macro-aware research & execution agent', ev: 'AKINDO wave · SoSoValue track', badge: '⏳ Top 15 · results pending', accent: '#ff7a59', stack: ['Next.js 15', 'Gemini', 'MCP', 'SoDEX', 'Solidity'] },
-  { id: 'defimosaic', title: 'DeFi Mosaic', tag: 'A gamified trading universe on real markets', ev: 'AKINDO WaveHack', badge: '🏆 Winner · 278 USDC', accent: '#3ddc97', stack: ['Next.js 15', 'Solidity', 'Polygon', 'wagmi', 'Supabase'] },
-  { id: 'nexus', title: 'NEXUS', tag: 'The verifiable AI-agent trust layer on 0G', ev: '0G on AKINDO', badge: '🏆 Winner · 70 USDC', accent: '#b04cff', stack: ['Solidity', '0G Storage', '0G Compute', 'ERC-7857', 'TEE'] },
-  { id: 'matchwave', title: '0G Matchwave', tag: 'Bias-free job matching on 0G', ev: '0G WaveHack on AKINDO', badge: '🏆 Winner · 522 USDT', accent: '#f5c518', stack: ['Next.js', 'Solidity', 'Hardhat', '0G Chain', '0G Compute'] },
-  { id: 'vectis', title: 'Vectis', tag: 'A wallet with opinions', ev: 'HackQuest · famous project', badge: '❤️ 15,858 likes on HackQuest', accent: '#f0584a', stack: ['Next.js 16', 'EIP-7702', 'ERC-7710', 'x402', 'Base'] },
-  { id: 'neuroledger', title: 'NeuroLedger', tag: 'Hospitals share AI, not patient data', ev: 'Federated learning on 0G', badge: '🔒 TEE-verified training', accent: '#2fae8c', stack: ['Python', 'Federated learning', 'Intel TDX', 'Solidity'] }
+  { id: 'mara', title: 'MARA', tag: 'A macro-aware research & execution agent', ev: 'AKINDO wave · SoSoValue track', badge: '🎯 Top 15 · results pending', accent: '#ff7a59', stack: ['Next.js 15', 'Gemini', 'MCP', 'SoDEX', 'Solidity'] },
+  { id: 'defimosaic', title: 'DeFi Mosaic', tag: 'A gamified trading universe on real markets', ev: 'Polygon hackathon · AKINDO', badge: '🏆 Winner', accent: '#3ddc97', stack: ['Next.js 15', 'Solidity', 'Polygon', 'wagmi', 'Supabase'] }
 ];
 for (const c of CARDS) {
   const W = 430, H = 196;
