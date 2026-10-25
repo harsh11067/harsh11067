@@ -73,7 +73,8 @@ btn('email', 'Email', `<path d="M2 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0
 const STACK = ['typescript', 'javascript', 'python', 'rust', 'kotlin', 'solidity', 'cplusplus', 'html5',
   'react', 'nextdotjs', 'nodedotjs', 'express', 'hono', 'tailwindcss', 'threedotjs', 'vite',
   'pytorch', 'tensorflow', 'jetpackcompose', 'fastapi', 'mongodb', 'postgresql', 'supabase', 'docker',
-  'git', 'github', 'vercel', 'linux', 'blender', 'gsap', 'shadcnui', 'pnpm'];
+  'git', 'github', 'vercel', 'linux', 'blender', 'gsap', 'shadcnui', 'pnpm',
+  'c', 'expo', 'scikitlearn', 'pandas', 'streamlit', 'd3', 'webgl', 'mui'];
 {
   const C = 8, S = 52, G = 10, W = C * (S + G) - G, rows = Math.ceil(STACK.length / C), H = rows * (S + G) - G;
   let tiles = '';
@@ -89,7 +90,7 @@ const STACK = ['typescript', 'javascript', 'python', 'rust', 'kotlin', 'solidity
 // light: logos that read better dark-on-colour
 const ECO_SI = { ethereum: '#627eea', polygon: '#7b3fe4', sui: '#4da2ff', solana: 'grad', ipfs: '#65c2cb', neon: '#00e599:dark', supabase: '#1c1c1c:green',
   vercel: '#000000', render: '#ffffff:dark', intel: '#0071c5', wagmi: '#1b1b1b', ethers: '#2535a0', binance: '#f0b90b:dark', googlegemini: '#ffffff:gem',
-  modelcontextprotocol: '#ffffff:dark', kaggle: '#20beff' };
+  modelcontextprotocol: '#ffffff:dark', kaggle: '#20beff', claude: '#d97757' };
 for (const [slug, style] of Object.entries(ECO_SI)) {
   const ic = icon(slug); if (!ic) throw new Error('no icon ' + slug);
   const [bg, mode] = style.split(':');
@@ -121,10 +122,10 @@ ${nodes}
 
 // ---------- selected projects: one card each ----------
 const CARDS = [
-  { id: 'helix', title: 'HELIX', tag: 'Conviction-native finance on Sui', ev: 'Sui Overflow 2026 · Agentic Web', badge: '🏆 Namespace winner · Top 100', accent: '#4da2ff', stack: ['Sui Move', 'DeepBook', 'Walrus', 'Seal', 'TEE'] },
+  { id: 'helix', title: 'HELIX', tag: 'Conviction-native finance on Sui', ev: 'Sui Overflow 2026 · Agentic Web', badge: '🏆 Namespace winner · $45 · Top 100', accent: '#4da2ff', stack: ['Sui Move', 'DeepBook', 'Walrus', 'Seal', 'TEE'] },
   { id: 'skinnova', title: 'SkinNova', tag: 'Offline skin checks on your phone, in English & Hindi', ev: 'On-device AI · Android', badge: '🧠 Gemma 4 fine-tune, fully offline', accent: '#8b7cff', stack: ['Kotlin', 'Compose', 'Gemma 4', 'LiteRT', 'PyTorch'] },
-  { id: 'mara', title: 'MARA', tag: 'A macro-aware research & execution agent', ev: 'AKINDO wave · SoSoValue track', badge: '🎯 Top 15 · results pending', accent: '#ff7a59', stack: ['Next.js 15', 'Gemini', 'MCP', 'SoDEX', 'Solidity'] },
-  { id: 'defimosaic', title: 'DeFi Mosaic', tag: 'A gamified trading universe on real markets', ev: 'Polygon hackathon · AKINDO', badge: '🏆 Winner', accent: '#3ddc97', stack: ['Next.js 15', 'Solidity', 'Polygon', 'wagmi', 'Supabase'] }
+  { id: 'mara', title: 'MARA', tag: 'A macro-aware research & execution agent', ev: 'AKINDO wave · SoSoValue track', badge: '🎯 Top 15 · USD pending', accent: '#ff7a59', stack: ['Next.js 15', 'Gemini', 'MCP', 'SoDEX', 'Solidity'] },
+  { id: 'defimosaic', title: 'DeFi Mosaic', tag: 'A gamified trading universe on real markets', ev: 'Polygon hackathon · AKINDO', badge: '🏆 Winner · 278 USDC', accent: '#3ddc97', stack: ['Next.js 15', 'Solidity', 'Polygon', 'wagmi', 'Supabase'] }
 ];
 for (const c of CARDS) {
   const W = 430, H = 196;

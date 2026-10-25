@@ -10,19 +10,22 @@ I build AI and web3 products, from the first sketch to the shipped thing. Agents
 
 ## ⚡ What I do
 
-I take a product from a thought in my head to something people actually use. I imagine the idea, learn whatever it needs, find the nerve to commit, design the whole thing end to end, then direct the build like a lead engineer, orchestrating a crew of AI coding agents through specs, reviews and tests, before I test it hard and ship it.
+I'm a solo builder who works like a small studio. An idea shows up, I learn whatever it needs (a new chain, a new model, Rust this month), and then I build it with Claude as my design partner and my engineering crew. I write the specs, split the work across Claude Code agents running in parallel, read every diff and test it hard, so I stay the one who decides what ships. The look comes together with Claude too: layouts, motion, and 3D scenes I shape in Blender through MCP.
 
 <div align="center"><img src="assets/flow.svg" alt="How I build: imagine, learn, commit, design, direct, test, ship" width="100%" /></div>
 
+- 🧠 **Agent orchestration**: Claude Code as a crew, with specs first, sub-agents on parallel tasks, and reviews and tests before anything merges
+- 🎨 **Design with Claude**: layouts, motion and visual polish, plus Blender scenes driven through MCP, like the ruins in Olympus and my [portfolio](https://kumarharsh.online)
 - 📱 **On-device ML**: models that run where the data lives, like SkinNova's Gemma 4 fine-tune that works fully offline on a phone
-- 🤖 **AI agents**: agents that research, decide and act on-chain, and can prove what they did
+- 🤖 **AI agents**: agents that research, decide and act on-chain, and can prove what they did (MARA, NEXUS, Vectis)
 - 🧩 **Full stack**: Next.js and React up front, Node and Hono behind, smart contracts underneath, shipped live
 - 🏁 **Hackathons**: idea to demo in a weekend, then the part most people skip: keep building
+- 🌱 **Right now**: Rust hands-on, system design, and DSA reps in C++ every day
 
 ## 🛠️ Core stack & technologies
 
 <div align="center">
-<img src="assets/stack.svg" alt="TypeScript, JavaScript, Python, Rust, Kotlin, Solidity, C++, HTML, React, Next.js, Node.js, Express, Hono, Tailwind CSS, three.js, Vite, PyTorch, TensorFlow, Jetpack Compose, FastAPI, MongoDB, PostgreSQL, Supabase, Docker, Git, GitHub, Vercel, Linux, Blender, GSAP, shadcn/ui, pnpm" width="480" />
+<img src="assets/stack.svg" alt="TypeScript, JavaScript, Python, Rust, Kotlin, Solidity, C++, HTML, React, Next.js, Node.js, Express, Hono, Tailwind CSS, three.js, Vite, PyTorch, TensorFlow, Jetpack Compose, FastAPI, MongoDB, PostgreSQL, Supabase, Docker, Git, GitHub, Vercel, Linux, Blender, GSAP, shadcn/ui, pnpm, C, Expo, scikit-learn, pandas, Streamlit, D3, WebGL, MUI" width="480" />
 </div>
 
 ## 🌐 Ecosystems worked with / built on (30+)
@@ -47,14 +50,14 @@ I take a product from a thought in my head to something people actually use. I i
 
 **🧠 AI & agents**
 
-<img src="assets/eco/googlegemini.svg" alt="Gemini" title="Gemini" width="46" />&nbsp;<img src="assets/eco/gemma.png" alt="Gemma" title="Gemma" width="46" />&nbsp;<img src="assets/eco/venice.png" alt="Venice AI" title="Venice AI" width="46" />&nbsp;<img src="assets/eco/modelcontextprotocol.svg" alt="Model Context Protocol" title="Model Context Protocol" width="46" />&nbsp;<img src="assets/eco/kaggle.svg" alt="Kaggle" title="Kaggle" width="46" />
+<img src="assets/eco/claude.svg" alt="Claude" title="Claude · Claude Code" width="46" />&nbsp;<img src="assets/eco/googlegemini.svg" alt="Gemini" title="Gemini" width="46" />&nbsp;<img src="assets/eco/gemma.png" alt="Gemma" title="Gemma" width="46" />&nbsp;<img src="assets/eco/venice.png" alt="Venice AI" title="Venice AI" width="46" />&nbsp;<img src="assets/eco/modelcontextprotocol.svg" alt="Model Context Protocol" title="Model Context Protocol" width="46" />&nbsp;<img src="assets/eco/kaggle.svg" alt="Kaggle" title="Kaggle" width="46" />
 
 </div>
 
 ## 🚀 Selected projects
 
 <div align="center">
-<a href="https://github.com/harsh11067/helix"><img src="assets/cards/helix.svg" alt="HELIX: conviction-native finance on Sui. Namespace winner, Top 100" width="49%" /></a>
+<a href="https://github.com/harsh11067/helix"><img src="assets/cards/helix.svg" alt="HELIX: conviction-native finance on Sui. Namespace winner, $45, Top 100" width="49%" /></a>
 <a href="https://github.com/harsh11067/SkinNova"><img src="assets/cards/skinnova.svg" alt="SkinNova: offline skin checks on your phone" width="49%" /></a>
 <a href="https://github.com/harsh11067/mara"><img src="assets/cards/mara.svg" alt="MARA: a macro-aware research and execution agent" width="49%" /></a>
 <a href="https://github.com/harsh11067/DefiMosaic"><img src="assets/cards/defimosaic.svg" alt="DeFi Mosaic: a gamified trading universe on real markets" width="49%" /></a>
@@ -66,11 +69,11 @@ I take a product from a thought in my head to something people actually use. I i
 
 | Hackathon | Project | Result |
 |:--|:--|:--|
-| 0G WaveHack · AKINDO | [0G Matchwave](https://github.com/harsh11067/OG_Matchwave) | 🏆 Winner |
-| Polygon hackathon · AKINDO | [DeFi Mosaic](https://github.com/harsh11067/DefiMosaic) | 🏆 Winner |
-| Namespace · HackHazards ’26 | [HELIX](https://github.com/harsh11067/helix) | 🏆 Winner · Top 100 |
+| 0G WaveHack · AKINDO | [0G Matchwave](https://github.com/harsh11067/OG_Matchwave) | 🏆 Winner · 522 USDT |
+| Polygon hackathon · AKINDO | [DeFi Mosaic](https://github.com/harsh11067/DefiMosaic) | 🏆 Winner · 278 USDC |
+| Namespace · HackHazards ’26 | [HELIX](https://github.com/harsh11067/helix) | 🏆 Winner · $45 · Top 100 |
 | HackQuest | [Vectis](https://www.hackquest.io/projects/vectis) | ⭐ Top rated · 15,858 likes |
-| AKINDO wave · SoSoValue track | [MARA](https://github.com/harsh11067/mara) | 🎯 Top 15 · results pending |
+| AKINDO wave · SoSoValue track | [MARA](https://github.com/harsh11067/mara) | 🎯 Top 15 · USD pending |
 | CodeRed ’25 · national level | [CodeRed ’25](https://github.com/harsh11067/mycodered25) | 🎖️ Finalist |
 
 <div align="center">
