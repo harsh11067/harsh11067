@@ -45,9 +45,9 @@ write('hero.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="880" height="2
   <text x="48" y="58" class="d">harsh_dev@kumarharsh:~$ whoami</text>
   <text x="48" y="112" class="t">Hello, I'm Kumar Harsh</text>
   <text x="48" y="146" class="s">AI + web3 builder · engineering student · hackathon regular</text>
-  <rect x="48" y="170" width="290" height="36" rx="18" fill="#0f2a1f" stroke="#1f6b4b" stroke-opacity=".7"/>
-  <text x="66" y="193" class="m">❯ irm kumarharsh.online | iex</text>
-  <rect x="316" y="181" width="8" height="15" rx="1" fill="#9ff5c6" class="caret"/>
+  <rect x="48" y="170" width="318" height="36" rx="18" fill="#0f2a1f" stroke="#1f6b4b" stroke-opacity=".7"/>
+  <text x="66" y="193" class="m">❯ ssh terminal.kumarharsh.online</text>
+  <rect x="341" y="181" width="8" height="15" rx="1" fill="#9ff5c6" class="caret"/>
   <g class="float">
     <circle cx="768" cy="120" r="88" fill="#ffffff" fill-opacity=".03" stroke="#ffffff" stroke-opacity=".08"/>
     <image href="data:image/webp;base64,${mascot}" x="692" y="44" width="152" height="152"/>
