@@ -72,6 +72,6 @@ I explore emerging ecosystems, experiment with new technologies, and turn intere
 
 *“Perhaps progress is not everything we bring to life, but everything that comes alive within us while we try.”*
 
-<sub>this profile also lives in your terminal: <code>irm kumarharsh.online | iex</code> · <code>curl -sL kumarharsh.online | bash</code></sub>
+<sub>this profile also lives in your terminal: <code>ssh terminal.kumarharsh.online</code> · <code>irm kumarharsh.online | iex</code> · <code>curl -sL kumarharsh.online | bash</code></sub>
 
 </div>
